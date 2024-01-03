@@ -1,0 +1,80 @@
+invalid = 0 
+calc = 0 
+i = 0
+while i < 6:
+  name = input('whats your name?: ')
+  age = int(input('enter age: ')) #enters age   
+  weight = int(input('enter weight in kg: ')) #enters weight 
+  height = int(input('enter height in cm: ')) #enters height 
+  gender = int(input('press 1 for male press 2 for female: ')) #enters gender 
+
+
+  if age in range (14, 100) and  height in range(120, 210) and weight in range (30, 100) : #if age is betwween 14 to 100 
+   print ('valid') 
+  else: #or 
+    invalid = 1  #invalid equals 1 
+    print ('invalid')  
+  if invalid == 1: #if invalid is 1 
+    exit() #exit code 
+  else: #or 
+    print('see below') #prints see below 
+  if (gender) == 1: #if gender equals 1 
+    BMR = 88.362 + (13.397 * (weight)) + (4.799 * (height)) - (5.677 * (age)) #BMR equals  
+  else: #or 
+    BMR =447.593 + (9.247 * (weight)) + (3.098 * (height)) - (4.330 * (age)) #BMR equals 
+
+
+  BMI = (weight) / ((height/100) * (height/100)) #BMI equals 
+
+
+  kilo = int(input('how much exercise do you do? press 0 for no exercise, 1 for 1-3 days a week, 2 for 3-5 days a week, 3 for 6-7 days a week and 4 for twice per day: ')) #input kilo  
+  calc = [1.2, 1.375, 1.55, 1.725, 1.9] #calc equals 
+  kilocalorie = BMR * calc[kilo] #kilocalorie equals 
+
+  bmi = round((BMI), 1)
+  bmr = round((BMR), 2)
+  kilo = round((kilocalorie))
+
+  print('This is your BMI') #prints This is your BMI 
+  print(bmi) #prints BMI 
+  print('This is your BMR') #prints this is your BMR 
+  print(bmr) #prints BMR 
+  print('This is your recommended kilocalorie intake') #prints 
+  print (kilo) #prints kilocalorie 
+  print('This is your target BMI') #prints 
+  print (22) #print 22 
+
+
+  if BMI < 18.5: #if your BMI is smaller than 18.5 
+    print('you are underweight') #print 
+  if BMI >= 18.5 and BMI <= 24.9: #if BMI is between 18.5 and 24.9 
+    print('your weight is normal') #print 
+  if BMI >= 25 and BMI <= 29.5: #if BMI is between 25 and 29.9 
+    print('you are overweight') #print 
+  if BMI > 30: #if BMI is bigger than 30 
+    print('you are obese') #print 
+
+  dict1 =bmi
+  dict2 =bmr
+  dict3 =kilo
+
+  file = open("calc.txt" , "a") 
+  file.write(name)
+  file.close()
+
+  file = open("calc.txt" , "a") 
+  file.write(" this is your BMI = " + repr(dict1) + "\n")
+  file.write ("\n") 
+  file.close() 
+  
+  file = open("calc.txt" , "a") 
+  file.write(" this is your BMR  = " + repr(dict2) + "\n")
+  file.write ("\n") 
+  file.close() 
+
+  file = open("calc.txt" , "a") 
+  file.write(" this is your kilicalories  = " + repr(dict3) + "\n")
+  file.write ("\n") 
+  file.close() 
+  
+  i = i + 1
